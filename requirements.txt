@@ -7,4 +7,3 @@ PyOpenSSL
 openpyxl
 youtube_dl
 bs4
-급식
