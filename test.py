@@ -9,7 +9,6 @@ from urllib.request import urlopen, Request
 import urllib
 import urllib.request
 import bs4
-import 급식
 import os
 import sys
 import json
@@ -138,7 +137,6 @@ async def on_message(message):
         embed.add_field(name='!실시간검색어, !실검', value='!실시간검색어, !실검 이라고 적으면 네이버의 실시간 검색어 순위가 나타납니다.', inline=False)
         embed.add_field(name='!번역 번역할문자', value='!번역 번역할문자 이라고 적으면 번역할 문자를 번역한 링크가 나타납니다. ("띄어쓰기를 하시면 안됩니다. _,-등으로 구분해주세요.")', inline=False)
         embed.add_field(name='!영화순위', value='영화를 1~20순위로 나눈 영화순위 정보를 제공합니다.', inline=False)
-        embed.add_field(name='!급식', value='군포e비즈니스 고등학교의 급식정보를 제공합니다.', inline=False)
         embed.add_field(name='!복권', value='랜덤으로 선정한 복권번호를 메시지로 보내줍니다.', inline=False)
         embed.add_field(name='!검색', value='!검색 검색할키워드 형식으로 입력하시면 유튜브 검색결과를 메시지로 보내줍니다.', inline=False)
 
@@ -800,16 +798,7 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed)
 
 
-    if message.content.startswith("!급식"):
-        embed = discord.Embed(
-            title='군포 E 비즈니스 고등학교 급식',
-            description='급식입니다.',
-            colour=discord.Colour.green()
-        )
-        embed.add_field(name='오늘', value=급식.lunchtext(), inline=False)
-        embed.add_field(name='내일', value=급식.lunchtextD1(), inline=False)
-        embed.add_field(name='모래', value=급식.lunchtextD2(), inline=False)
-        await client.send_message(message.channel, embed=embed)
+
 
     
     if message.content.startswith("!복권"):
