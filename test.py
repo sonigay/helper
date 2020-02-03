@@ -58,7 +58,7 @@ async def on_ready():
 async def on_message(message):
     global gc #정산
     global creds	#정산
-    
+    global channel
     
     if message.content.startswith('!재고'):
         SearchID = message.content[len('!재고')+1:]
