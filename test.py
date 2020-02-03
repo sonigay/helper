@@ -241,7 +241,6 @@ async def on_message(message):
             await client.send_message(message.channel, embed=discord.Embed(description="재생한다!!!!"))
             await voice.disconnect()
             await asyncio.sleep(1)
-            voice = await client.join_voice_channel(channel)
             print(player.is_playing())
             player.start()
         else:
