@@ -8,3 +8,4 @@ openpyxl
 youtube_dl
 bs4
 selenium
+PyNaCl
