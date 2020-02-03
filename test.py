@@ -232,6 +232,7 @@ async def on_message(message):
         server = message.server
         if(client.is_voice_connected(server)):
             voice_client = client.voice_client_in(server)
+            channel = message.author.voice.voice_channel
             msg1 = message.content.split(" ")
             url = msg1[1]
             player = await voice_client.create_ytdl_player(url, after=lambda: check_queue(server.id))
