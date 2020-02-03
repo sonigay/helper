@@ -230,21 +230,17 @@ async def on_message(message):
     if message.content.startswith("!재생"):
 
         server = message.server
-        if(client.is_voice_connected(server)):
-            voice_client = client.voice_client_in(server)
-            channel = message.author.voice.voice_channel
-            msg1 = message.content.split(" ")
-            url = msg1[1]
-            player = await voice_client.create_ytdl_player(url, after=lambda: check_queue(server.id))
-            print(player.is_playing())
-            players[server.id] = player
-            await client.send_message(message.channel, embed=discord.Embed(description="재생한다!!!!"))
-            await voice.disconnect()
-            await asyncio.sleep(1)
-            print(player.is_playing())
-            player.start()
-        else:
-            voice = await client.join_voice_channel(channel)
+        voice_client = client.voice_client_in(server)
+        msg1 = message.content.split(" ")
+        url = msg1[1]
+        player = await voice_client.create_ytdl_player(url, after=lambda: check_queue(server.id))
+        print(player.is_playing())
+        players[server.id] = player
+        await client.send_message(message.channel, embed=discord.Embed(description="재생한다!!!!"))
+        print(player.is_playing())
+        player.start()
+
+
 
 
 
