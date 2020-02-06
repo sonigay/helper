@@ -70,7 +70,7 @@ async def on_message(message):
         
         embed = discord.Embed(
             title = ' :calling:  ' + SearchID + ' 재고현황! ',
-            description= '```' + SearchID + ' 재고현황 입니다.\n데이터 업로드시간은\n'+ result2 + ' 입니다.' + result + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```',
+            description= '```' + SearchID + ' 재고현황 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.' + result + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```',
             color=0x50508C
             )
         await client.send_message(message.channel, embed=embed)
