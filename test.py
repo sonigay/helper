@@ -23,8 +23,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_name('jego-972d19158581.json
 client = gspread.authorize(creds)
 doc = client.open_by_url('https://docs.google.com/spreadsheets/d/15p6G4jXmHw7Z_iRCYeFwRzkzLxqf-3Pj0c6FeVuFYBM')
 
-sheet1 = doc.worksheet('시트1')
-sheet2 = doc.worksheet('시트2')
+
 
 client = discord.Client()
 
@@ -64,12 +63,14 @@ async def on_message(message):
         SearchID = message.content[len('!재고')+1:]
         gc = gspread.authorize(creds)
         wks = gc.open('오전재고').worksheet('시트3')
+        wkstime = gc.open('오전재고').worksheet('데이터')
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
+        result2 = wkstime.acell('A1').value
         
         embed = discord.Embed(
             title = ' :calling:  ' + SearchID + ' 재고현황! ',
-            description= '```' + SearchID + ' 오전까지 내역입니다. ' + result + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```',
+            description= '```' + SearchID + ' 재고현황 입니다.\n데이터 업로드시간은\n'+ result2 + ' 입니다.' + result + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```',
             color=0x50508C
             )
         await client.send_message(message.channel, embed=embed)
