@@ -96,8 +96,9 @@ async def on_message(message):
         wks = gc.open('오전재고').worksheet('당월실적출력')
         wkstime = gc.open('오전재고').worksheet('당월모바일개통데이터')
         wks.update_acell('A1', SearchID)
+        result2 = wkstime.acell('C1').value        
         result = wks.acell('B1').value
-        result2 = wkstime.acell('C1').value
+
         
         embed = discord.Embed(
             title = ' 📈 ' + SearchID + ' 당월실적! ',
