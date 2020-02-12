@@ -84,8 +84,8 @@ async def on_message(message):
         result = wks.acell('B1').value
         
         embed = discord.Embed(
-            title = ' 📈  ' + SearchID + ' 전월실적! ',
-            description= '**```css\n' + SearchID + '2ND/중고/선불개통제외 전월마감실적 입니다.\n중도 취소발생시 실적에서 차이가 생길수 있습니다.'+ result + '한달동안 고생 많으셨습니다. ```**',
+            title = ' 📈 ' + SearchID + ' 전월실적! ',
+            description= '**```css\n' + SearchID + '2ND/중고/선불개통제외 전월마감실적 입니다.\n중도 취소발생시 실적에서 차이가 생길수 있습니다.\n'+ result + '한달동안 고생 많으셨습니다. ```**',
             color=0x50508C
             )
         await client.send_message(message.channel, embed=embed)
@@ -97,10 +97,10 @@ async def on_message(message):
         wkstime = gc.open('오전재고').worksheet('당월모바일개통데이터')
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
-        result2 = wkstime.acell('A1').value
+        result2 = wkstime.acell('C1').value
         
         embed = discord.Embed(
-            title = ' 📈  ' + SearchID + ' 당월실적! ',
+            title = ' 📈 ' + SearchID + ' 당월실적! ',
             description= '**```css\n' + SearchID + '2ND/중고/선불개통제외 당월실적 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.' + result + '실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝가지 화이팅입니다!! ```**',
             color=0x50508C
             )
@@ -180,7 +180,7 @@ async def on_message(message):
                 break
             await client.send_message(message.channel, "A : "+sheet["A" + str(i)].value + " B : "+ sheet["B" + str(i)].value)
 
-    if message.content.startswith("!명령어입니다."):
+    if message.content.startswith("!입니다."):
         channel = message.channel
         embed = discord.Embed(
             title = '명령어들이다 크크크큭',
