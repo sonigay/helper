@@ -76,6 +76,38 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed)
         
         
+    if message.content.startswith('!전월실적'):
+        SearchID = message.content[len('!전월실적')+1:]
+        gc = gspread.authorize(creds)
+        wks = gc.open('오전재고').worksheet('전월실적출력')
+        wks.update_acell('A1', SearchID)
+        result = wks.acell('B1').value
+        
+        embed = discord.Embed(
+            title = ' 📈  ' + SearchID + ' 전월실적! ',
+            description= '**```css\n' + SearchID + '2ND/중고/선불개통제외 전월마감실적 입니다.\n중도 취소발생시 실적에서 차이가 생길수 있습니다.'+ result + '한달동안 고생 많으셨습니다. ```**',
+            color=0x50508C
+            )
+        await client.send_message(message.channel, embed=embed)
+        
+    if message.content.startswith('!당월실적'):
+        SearchID = message.content[len('!당월실적')+1:]
+        gc = gspread.authorize(creds)
+        wks = gc.open('오전재고').worksheet('당월실적출력')
+        wkstime = gc.open('오전재고').worksheet('당월모바일개통데이터')
+        wks.update_acell('A1', SearchID)
+        result = wks.acell('B1').value
+        result2 = wkstime.acell('A1').value
+        
+        embed = discord.Embed(
+            title = ' 📈  ' + SearchID + ' 당월실적! ',
+            description= '**```css\n' + SearchID + '2ND/중고/선불개통제외 당월실적 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.' + result + '실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝가지 화이팅입니다!! ```**',
+            color=0x50508C
+            )
+        await client.send_message(message.channel, embed=embed)        
+        
+        
+        
     if message.content.startswith('!거래처'):
         SearchID = message.content[len('!모델명')+1:]
         gc = gspread.authorize(creds)
