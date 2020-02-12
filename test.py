@@ -148,7 +148,7 @@ async def on_message(message):
                 break
             await client.send_message(message.channel, "A : "+sheet["A" + str(i)].value + " B : "+ sheet["B" + str(i)].value)
 
-    if message.content.startswith("!명령어"):
+    if message.content.startswith("!명령어입니다."):
         channel = message.channel
         embed = discord.Embed(
             title = '명령어들이다 크크크큭',
