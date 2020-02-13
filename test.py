@@ -84,6 +84,7 @@ async def on_message(message):
         result = wks.acell('B1').value
         result2 = wks.acell('C1').value
         result3 = wks.acell('D1').value
+        result4 = wks.acell('E1').value
         
         embed1 = discord.Embed(
             title = ' 📈 ' + SearchID + ' 전월실적! ',
@@ -97,12 +98,18 @@ async def on_message(message):
             )
         embed3 = discord.Embed(
             title = '',
-            description= '**```css\n' + result3 + ' 입니다. 한달동안 고생 많으셨습니다. ```**',
+            description= '**```css\n' + result3 + '```**',
+            color=0x50508C
+            )        
+        embed4 = discord.Embed(
+            title = '',
+            description= '**```css\n' + result4 + ' 입니다. 한달동안 고생 많으셨습니다. ```**',
             color=0x50508C
             )
         await client.send_message(message.channel, embed=embed1)
         await client.send_message(message.channel, embed=embed2)
         await client.send_message(message.channel, embed=embed3)
+        await client.send_message(message.channel, embed=embed4)
         
     if message.content.startswith('!당월실적'):
         SearchID = message.content[len('!당월실적')+1:]
@@ -114,6 +121,7 @@ async def on_message(message):
         result = wks.acell('B1').value
         result3 = wks.acell('C1').value
         result4 = wks.acell('D1').value
+        result5 = wks.acell('E1').value
         
         embed1 = discord.Embed(
             title = ' 📈 ' + SearchID + ' 당월실적! ',
@@ -127,12 +135,18 @@ async def on_message(message):
             )
         embed3 = discord.Embed(
             title = '',
-            description= '**```css\n' + result4 + ' 입니다. 실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝가지 화이팅입니다!! ```**',
+            description= '**```css\n' + result4 + '```**',
+            color=0x50508C
+            )
+        embed4 = discord.Embed(
+            title = '',
+            description= '**```css\n' + result5 + ' 입니다. 실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝가지 화이팅입니다!! ```**',
             color=0x50508C
             )
         await client.send_message(message.channel, embed=embed1)        
         await client.send_message(message.channel, embed=embed2)
         await client.send_message(message.channel, embed=embed3)
+        await client.send_message(message.channel, embed=embed4)
         
         
     if message.content.startswith('!거래처'):
