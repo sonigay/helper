@@ -109,12 +109,12 @@ async def on_message(message):
         
         embed = discord.Embed(
             title = ' 📈 ' + SearchID + ' 당월실적! ',
-            description= '**```css\n' + SearchID + '2ND/중고/선불개통제외 당월실적 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.' + result + ' ```**',
+            description= '**```css\n' + SearchID + '2ND/중고/선불개통제외 당월실적 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.' + result + '```**',
             color=0x50508C
             )
         embed.add_field(
             name="📈 모델통계 ",
-            value= '**```css\n' + result2 + ' 입니다. 실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝가지 화이팅입니다!! ```**',
+            value= '**```css\n' + result3 + ' 입니다. 실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝가지 화이팅입니다!! ```**',
             inline = False
             )
         await client.send_message(message.channel, embed=embed)        
