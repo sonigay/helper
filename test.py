@@ -140,7 +140,7 @@ async def on_message(message):
             )
         embed4 = discord.Embed(
             title = '',
-            description= '**```css\n' + result5 + ' 입니다. 실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝가지 화이팅입니다!! ```**',
+            description= '**```css\n' + result5 + ' 입니다. 실시간조회가 아니라서 다소 차이가 있습니다.\n이번달도 끝까지 화이팅입니다!! ```**',
             color=0x50508C
             )
         await client.send_message(message.channel, embed=embed1)        
