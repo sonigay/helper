@@ -95,13 +95,14 @@ async def on_message(message):
             description= '**```css\n' + result2 + '```**',
             color=0x50508C
             )
-        embed2.add_field(
-            name="",
-            value= '**```css\n' + result3 + ' 입니다. 한달동안 고생 많으셨습니다. ```**',
-            inline = False
+        embed3 = discord.Embed
+            title = '',
+            description= '**```css\n' + result3 + ' 입니다. 한달동안 고생 많으셨습니다. ```**',
+            color=0x50508C
             )
         await client.send_message(message.channel, embed=embed1)
         await client.send_message(message.channel, embed=embed2)
+        await client.send_message(message.channel, embed=embed3)
         
     if message.content.startswith('!당월실적'):
         SearchID = message.content[len('!당월실적')+1:]
