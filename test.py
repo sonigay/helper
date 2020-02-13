@@ -876,97 +876,7 @@ async def on_message(message):
         #"http://www.gifbin.com/random"
 
 
-    if message.content.startswith('!영화순위'):
-        # http://ticket2.movie.daum.net/movie/movieranklist.aspx
-        i1 = 0 # 랭킹 string값
-        embed = discord.Embed(
-            title = "영화순위",
-            description = "영화순위입니다.",
-            colour= discord.Color.red()
-        )
-        hdr = {'User-Agent': 'Mozilla/5.0'}
-        url = 'http://ticket2.movie.daum.net/movie/movieranklist.aspx'
-        print(url)
-        req = Request(url, headers=hdr)
-        html = urllib.request.urlopen(req)
-        bsObj = bs4.BeautifulSoup(html, "html.parser")
-        moviechartBase = bsObj.find('div', {'class': 'main_detail'})
-        moviechart1 = moviechartBase.find('ul', {'class': 'list_boxthumb'})
-        moviechart2 = moviechart1.find_all('li')
 
-        for i in range(0, 20):
-            i1 = i1+1
-            stri1 = str(i1) # i1은 영화랭킹을 나타내는데 사용됩니다
-            print()
-            print(i)
-            print()
-            moviechartLi1 = moviechart2[i]  # ------------------------- 1등랭킹 영화---------------------------
-            moviechartLi1Div = moviechartLi1.find('div', {'class': 'desc_boxthumb'})  # 영화박스 나타내는 Div
-            moviechartLi1MovieName1 = moviechartLi1Div.find('strong', {'class': 'tit_join'})
-            moviechartLi1MovieName = moviechartLi1MovieName1.text.strip()  # 영화 제목
-            print(moviechartLi1MovieName)
-
-            moviechartLi1Ratting1 = moviechartLi1Div.find('div', {'class': 'raking_grade'})
-            moviechartLi1Ratting2 = moviechartLi1Ratting1.find('em', {'class': 'emph_grade'})
-            moviechartLi1Ratting = moviechartLi1Ratting2.text.strip()  # 영화 평점
-            print(moviechartLi1Ratting)
-
-            moviechartLi1openDay1 = moviechartLi1Div.find('dl', {'class': 'list_state'})
-            moviechartLi1openDay2 = moviechartLi1openDay1.find_all('dd')  # 개봉날짜, 예매율 두개포함한 dd임
-            moviechartLi1openDay3 = moviechartLi1openDay2[0]
-            moviechartLi1Yerating1 = moviechartLi1openDay2[1]
-            moviechartLi1openDay = moviechartLi1openDay3.text.strip()  # 개봉날짜
-            print(moviechartLi1openDay)
-            moviechartLi1Yerating = moviechartLi1Yerating1.text.strip()  # 예매율 ,랭킹변동
-            print(moviechartLi1Yerating)  # ------------------------- 1등랭킹 영화---------------------------
-            print()
-            embed.add_field(name='---------------랭킹'+stri1+'위---------------', value='\n영화제목 : '+moviechartLi1MovieName+'\n영화평점 : '+moviechartLi1Ratting+'점'+'\n개봉날짜 : '+moviechartLi1openDay+'\n예매율,랭킹변동 : '+moviechartLi1Yerating, inline=False) # 영화랭킹
-
-
-        await client.send_message(message.channel, embed=embed)
-
-
-
-
-    
-    if message.content.startswith("!복권"):
-        Text = ""
-        number = [1, 2, 3, 4, 5, 6, 7]
-        count = 0
-        for i in range(0, 7):
-            num = random.randrange(1, 46)
-            number[i] = num
-            if count >= 1:
-                for i2 in range(0, i):
-                    if number[i] == number[i2]:  # 만약 현재랜덤값이 이전숫자들과 값이 같다면
-                        numberText = number[i]
-                        print("작동 이전값 : " + str(numberText))
-                        number[i] = random.randrange(1, 46)
-                        numberText = number[i]
-                        print("작동 현재값 : " + str(numberText))
-                        if number[i] == number[i2]:  # 만약 다시 생성한 랜덤값이 이전숫자들과 또 같다면
-                            numberText = number[i]
-                            print("작동 이전값 : " + str(numberText))
-                            number[i] = random.randrange(1, 46)
-                            numberText = number[i]
-                            print("작동 현재값 : " + str(numberText))
-                            if number[i] == number[i2]:  # 만약 다시 생성한 랜덤값이 이전숫자들과 또 같다면
-                                numberText = number[i]
-                                print("작동 이전값 : " + str(numberText))
-                                number[i] = random.randrange(1, 46)
-                                numberText = number[i]
-                                print("작동 현재값 : " + str(numberText))
-
-            count = count + 1
-            Text = Text + "  " + str(number[i])
-
-        print(Text.strip())
-        embed = discord.Embed(
-            title="복권 숫자!",
-            description=Text.strip(),
-            colour=discord.Color.red()
-        )
-        await client.send_message(message.channel, embed=embed)
 
     if message.content.startswith('!검색'):
         Text = ""
@@ -1121,22 +1031,6 @@ async def on_message(message):
         print(emoji[randomNum])
         await client.send_message(message.channel, embed=discord.Embed(description=emoji[randomNum])) # 랜덤 이모티콘을 메시지로 출력합니다.
 
-    if message.content.startswith('!주사위'):
-
-        randomNum = random.randrange(1, 7) # 1~6까지 랜덤수
-        print(randomNum)
-        if randomNum == 1:
-            await client.send_message(message.channel, embed=discord.Embed(description=':game_die: '+ ':one:'))
-        if randomNum == 2:
-            await client.send_message(message.channel, embed=discord.Embed(description=':game_die: ' + ':two:'))
-        if randomNum ==3:
-            await client.send_message(message.channel, embed=discord.Embed(description=':game_die: ' + ':three:'))
-        if randomNum ==4:
-            await client.send_message(message.channel, embed=discord.Embed(description=':game_die: ' + ':four:'))
-        if randomNum ==5:
-            await client.send_message(message.channel, embed=discord.Embed(description=':game_die: ' + ':five:'))
-        if randomNum ==6:
-            await client.send_message(message.channel, embed=discord.Embed(description=':game_die: ' + ':six: '))
 
     if message.content.startswith('!타이머'):
 
