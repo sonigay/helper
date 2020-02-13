@@ -83,6 +83,7 @@ async def on_message(message):
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
         result2 = wks.acell('C1').value
+        result3 = wks.acell('D1').value
         
         embed1 = discord.Embed(
             title = ' 📈 ' + SearchID + ' 전월실적! ',
@@ -91,8 +92,13 @@ async def on_message(message):
             )
         embed2 = discord.Embed(
             title = ' 📈 ' + SearchID + ' 모델통계! ',
-            description= '**```css\n' + result2 + ' 입니다. 한달동안 고생 많으셨습니다. ```**',
+            description= '**```css\n' + result2 + '```**',
             color=0x50508C
+            )
+        embed2.add_field(
+            name="",
+            value= '**```css\n' + result3 + ' 입니다. 한달동안 고생 많으셨습니다. ```**',
+            inline = False
             )
         await client.send_message(message.channel, embed=embed1)
         await client.send_message(message.channel, embed=embed2)
