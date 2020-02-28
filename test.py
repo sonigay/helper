@@ -63,7 +63,7 @@ async def on_message(message):
         SearchID = message.content[len('!재고')+1:]
         gc = gspread.authorize(creds)
         wks = gc.open('재고관리').worksheet('영업재고출력')
-        wkstime = gc.open('재고관리').worksheet('데이터')
+        wkstime = gc.open('재고관리').worksheet('재고데이터')
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
         result2 = wkstime.acell('A1').value
@@ -169,7 +169,7 @@ async def on_message(message):
         SearchID = message.content[len('!유심')+1:]
         gc = gspread.authorize(creds)
         wks = gc.open('재고관리').worksheet('유심출력')
-        wkstime = gc.open('재고관리').worksheet('데이터')
+        wkstime = gc.open('재고관리').worksheet('재고데이터')
         wks.update_acell('A1', SearchID)
         result2 = wkstime.acell('a1').value        
         result = wks.acell('B1').value
@@ -207,7 +207,7 @@ async def on_message(message):
         SearchID = message.content[len('!불량')+1:]
         gc = gspread.authorize(creds)
         wks = gc.open('재고관리').worksheet('불량출력')
-        wkstime = gc.open('재고관리').worksheet('데이터')
+        wkstime = gc.open('재고관리').worksheet('재고데이터')
         wks.update_acell('A1', SearchID)
         result2 = wkstime.acell('a1').value        
         result = wks.acell('B1').value
