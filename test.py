@@ -62,8 +62,8 @@ async def on_message(message):
     if message.content.startswith('!재고'):
         SearchID = message.content[len('!재고')+1:]
         gc = gspread.authorize(creds)
-        wks = gc.open('오전재고').worksheet('시트3')
-        wkstime = gc.open('오전재고').worksheet('데이터')
+        wks = gc.open('재고관리').worksheet('영업재고출력')
+        wkstime = gc.open('재고관리').worksheet('데이터')
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
         result2 = wkstime.acell('A1').value
@@ -79,7 +79,7 @@ async def on_message(message):
     if message.content.startswith('!전월실적'):
         SearchID = message.content[len('!전월실적')+1:]
         gc = gspread.authorize(creds)
-        wks = gc.open('오전재고').worksheet('전월실적출력')
+        wks = gc.open('재고관리').worksheet('전월실적출력')
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
         result2 = wks.acell('C1').value
@@ -114,8 +114,8 @@ async def on_message(message):
     if message.content.startswith('!당월실적'):
         SearchID = message.content[len('!당월실적')+1:]
         gc = gspread.authorize(creds)
-        wks = gc.open('오전재고').worksheet('당월실적출력')
-        wkstime = gc.open('오전재고').worksheet('당월모바일개통데이터')
+        wks = gc.open('재고관리').worksheet('당월실적출력')
+        wkstime = gc.open('재고관리').worksheet('당월모바일개통데이터')
         wks.update_acell('A1', SearchID)
         result2 = wkstime.acell('C1').value        
         result = wks.acell('B1').value
@@ -152,7 +152,7 @@ async def on_message(message):
     if message.content.startswith('!거래처'):
         SearchID = message.content[len('!모델명')+1:]
         gc = gspread.authorize(creds)
-        wks = gc.open('오전재고').worksheet('시트14')
+        wks = gc.open('재고관리').worksheet('거래처코드출력')
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
         
@@ -168,8 +168,8 @@ async def on_message(message):
     if message.content.startswith('!유심'):
         SearchID = message.content[len('!유심')+1:]
         gc = gspread.authorize(creds)
-        wks = gc.open('오전재고').worksheet('유심출력')
-        wkstime = gc.open('오전재고').worksheet('데이터')
+        wks = gc.open('재고관리').worksheet('유심출력')
+        wkstime = gc.open('재고관리').worksheet('데이터')
         wks.update_acell('A1', SearchID)
         result2 = wkstime.acell('a1').value        
         result = wks.acell('B1').value
@@ -206,8 +206,8 @@ async def on_message(message):
     if message.content.startswith('!불량'):
         SearchID = message.content[len('!불량')+1:]
         gc = gspread.authorize(creds)
-        wks = gc.open('오전재고').worksheet('불량출력')
-        wkstime = gc.open('오전재고').worksheet('데이터')
+        wks = gc.open('재고관리').worksheet('불량출력')
+        wkstime = gc.open('재고관리').worksheet('데이터')
         wks.update_acell('A1', SearchID)
         result2 = wkstime.acell('a1').value        
         result = wks.acell('B1').value
