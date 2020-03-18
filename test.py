@@ -179,10 +179,7 @@ async def on_message(message):
             )
         await client.send_message(message.channel, embed=embed)        
         
-        
-        
-        
-        
+	
     if message.content.startswith('!유심'):
         SearchID = message.content[len('!유심')+1:]
         gc = gspread.authorize(creds)
