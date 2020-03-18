@@ -150,7 +150,7 @@ async def on_message(message):
         
         
     if message.content.startswith('!거래처'):
-        SearchID = message.content[len('!모델명')+1:]
+        SearchID = message.content[len('!거래처')+1:]
         gc = gspread.authorize(creds)
         wks = gc.open('재고관리').worksheet('거래처코드출력')
         wks.update_acell('A1', SearchID)
