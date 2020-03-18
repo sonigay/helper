@@ -165,6 +165,24 @@ async def on_message(message):
         
         
         
+    if message.content.startswith('!모델명'):
+        SearchID = message.content[len('!모델명')+1:]
+        gc = gspread.authorize(creds)
+        wks = gc.open('재고관리').worksheet('모델명출력')
+        wks.update_acell('A1', SearchID)
+        result = wks.acell('B1').value
+		
+        embed = discord.Embed(
+            title = ' :printer:  모델명 코드 리스트 ',
+            description= '**```css\n' + SearchID + ' 모델명 코드는 ' + result + '```**',
+            color=0x0000ff
+            )
+        await client.send_message(message.channel, embed=embed)        
+        
+        
+        
+        
+        
     if message.content.startswith('!유심'):
         SearchID = message.content[len('!유심')+1:]
         gc = gspread.authorize(creds)
