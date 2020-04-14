@@ -163,6 +163,7 @@ async def on_message(message):
             color=0x00Bfff
             )
         embed = discord.Embed(
+            title = '',
             description= '```' + result2 + ' ```',
             color=0x00Bfff
             )
