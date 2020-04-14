@@ -159,7 +159,7 @@ async def on_message(message):
         
         embed = discord.Embed(
             title = ' :printer:  거래처 코드 리스트 ',
-            description= '```' + SearchID + ' 거래처 코드는 ' + result + ' ```',
+            description= '```' + result + ' ```',
             color=0x00Bfff
             )
         embed = discord.Embed(
