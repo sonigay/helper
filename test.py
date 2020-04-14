@@ -155,14 +155,19 @@ async def on_message(message):
         wks = gc.open('재고관리').worksheet('거래처코드출력')
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
+        result2 = wks.acell('C1').value
         
         embed = discord.Embed(
             title = ' :printer:  거래처 코드 리스트 ',
             description= '```' + SearchID + ' 거래처 코드는 ' + result + ' ```',
             color=0x00Bfff
             )
+        embed = discord.Embed(
+            description= '```' + result2 + ' ```',
+            color=0x00Bfff
+            )
         await client.send_message(message.channel, embed=embed)
-        
+        await client.send_message(message.channel, embed=embed2)        
         
         
     if message.content.startswith('!모델명'):
