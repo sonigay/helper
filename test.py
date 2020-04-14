@@ -162,7 +162,7 @@ async def on_message(message):
             description= '```' + result + ' ```',
             color=0x00Bfff
             )
-        embed = discord.Embed(
+        embed2 = discord.Embed(
             title = '',
             description= '```' + result2 + ' ```',
             color=0x00Bfff
