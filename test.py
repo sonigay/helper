@@ -169,7 +169,24 @@ async def on_message(message):
             )
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed2)        
+
+	
+    if message.content.startswith('!담당자'):
+        SearchID = message.content[len('!담당자')+1:]
+        gc = gspread.authorize(creds)
+        wks = gc.open('재고관리').worksheet('담당자출력')
+        wks.update_acell('A1', SearchID)
+        result = wks.acell('B1').value
         
+        embed = discord.Embed(
+            title = '거래처별 담당자 연락처 ',
+            description= '```' + result + ' ```',
+            color=0x00Bfff
+            )
+        await client.send_message(message.channel, embed=embed)
+
+	
+	
         
     if message.content.startswith('!모델명'):
         SearchID = message.content[len('!모델명')+1:]
