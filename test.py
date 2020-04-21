@@ -67,13 +67,20 @@ async def on_message(message):
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
         result2 = wkstime.acell('A1').value
+        result3 = wks.acell('c1').value	
         
         embed = discord.Embed(
             title = ' :calling:  ' + SearchID + ' 재고현황! ',
-            description= '**```css\n' + SearchID + ' 재고현황 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.\n' + result + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
+            description= '**```css\n' + SearchID + ' 재고현황 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.\n' + result + '```**',
             color=0x50508C
             )
+        embed2 = discord.Embed(
+            title = '',
+            description= '**```css\n'+ result3 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
+            color=0x50508C
+            )	
         await client.send_message(message.channel, embed=embed)
+        await client.send_message(message.channel, embed=embed2)	
         
         
     if message.content.startswith('!전월실적'):
