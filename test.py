@@ -77,12 +77,12 @@ async def on_message(message):
             )
         embed2 = discord.Embed(
             title = '',
-            description= '**```css\n'+ result3 + '```**',
+            description= '**```css\n '+ result3 + '```**',
             color=0x50508C
             )
         embed3 = discord.Embed(
             title = '',
-            description= '**```css\n'+ result4 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
+            description= '**```css\n '+ result4 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
             color=0x50508C
             )	
         await client.send_message(message.channel, embed=embed)
