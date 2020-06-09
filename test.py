@@ -285,6 +285,13 @@ async def on_message(message):
             value='```' + result24 + '```',
             inline = True
         )
+        embed4.add_field(
+            name='```' 하하하'```',
+            value='',
+            inline = True
+        )
+	
+	
 	
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed1)
