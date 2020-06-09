@@ -117,7 +117,9 @@ async def on_message(message):
     if message.content == '!동판':
         wks = gc1.open('정책표관리').worksheet('동판구두2')
         result = wks.acell('hu2').value #정책 적용일시
-
+        result1 = wks.acell('d6').value # 동판 신규/MNP
+        result2 = wks.acell('e6').value # 동판 재가입/정책기변
+	
         embed = discord.Embed(
             title='유선 동판 정책',
             description= '```정책 적용 일시내 모바일 개통 및 설치, 결합시 적용\n ```',
@@ -132,8 +134,38 @@ async def on_message(message):
             name="유의사항",
             value='```diff\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수 ( 동일 장소 재설치 및 가족명의 등 )```',
             inline = False
-        )	
-        await client.send_message(message.channel, embed=embed)	
+        )
+        embed1 = discord.Embed(
+            title='',
+            description= '```광기가(1기가) ```',
+            color=0x00ffff
+        )
+        embed1.add_field(
+            name="TV유무",
+            value='```TV(프리미엄)```',
+            inline = True
+        )
+        embed1.add_field(
+            name="모바일\n신규/MNP",
+            value='```' + result1 + '```',
+            inline = True
+        )
+        embed1.add_field(
+            name="모바일\n재가입/정책기변",
+            value='```' + result2 + '```',
+            inline = True
+        )
+
+
+        await client.send_message(message.channel, embed=embed)
+        await client.send_message(message.channel, embed=embed1)
+
+
+
+
+
+
+
 	
 	
     if message.content.startswith('!전월실적'):
