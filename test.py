@@ -141,17 +141,17 @@ async def on_message(message):
 	
 	
         embed = discord.Embed(
-            title='유선 동판 정책',
+            title='🌐 유선 동판 정책',
             description= '```정책 적용 일시내 모바일 개통 및 설치, 결합시 적용```',
             color=0x00ffff
         )
         embed.add_field(
-            name="정책 적용 일시",
+            name="⌛ 정책 적용 일시",
             value='```' + result + '```',
             inline = False
         )
         embed.add_field(
-            name="유의사항",
+            name="📍 유의사항",
             value='```diff\n-■ 본사 사은품은 3년약정 동판시 지급\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수\n-  (동일장소 재설치및 가족명의 등)```',
             inline = False
         )
@@ -177,12 +177,12 @@ async def on_message(message):
         )
         embed1 = discord.Embed(
             title='',
-            description= '```광기가(1기가) ```',
-            color=0x00ffff
+            description= '```💚광기가(1기가) ```',
+            color=0x83ff30
         )
         embed1.add_field(
             name="TV포함 유무",
-            value='```TV(프리미엄)```',
+            value='```💚TV(프리미엄)```',
             inline = True
         )
         embed1.add_field(
@@ -197,7 +197,7 @@ async def on_message(message):
         )
         embed1.add_field(
             name="__________",
-            value='```TV(베이직)```',
+            value='```💚TV(베이직)```',
             inline = True
         )
         embed1.add_field(
@@ -212,12 +212,12 @@ async def on_message(message):
         )
         embed2 = discord.Embed(
             title='',
-            description= '```슬림(500메가) ```',
-            color=0x00ffff
+            description= '```💛슬림(500메가) ```',
+            color=0xf9ff27
         )
         embed2.add_field(
             name="TV포함 유무",
-            value='```TV(프리미엄)```',
+            value='```💛TV(프리미엄)```',
             inline = True
         )
         embed2.add_field(
@@ -232,7 +232,7 @@ async def on_message(message):
         )
         embed2.add_field(
             name="__________",
-            value='```TV(베이직)```',
+            value='```💛TV(베이직)```',
             inline = True
         )
         embed2.add_field(
@@ -247,12 +247,12 @@ async def on_message(message):
         )
         embed3 = discord.Embed(
             title='',
-            description= '```광랜(100메가) ```',
-            color=0x00ffff
+            description= '```💙광랜(100메가) ```',
+            color=0x3862ff
         )
         embed3.add_field(
             name="TV포함 유무",
-            value='```TV(프리미엄)```',
+            value='```💙TV(프리미엄)```',
             inline = True
         )
         embed3.add_field(
@@ -267,7 +267,7 @@ async def on_message(message):
         )
         embed3.add_field(
             name="__________",
-            value='```TV(베이직)```',
+            value='```💙TV(베이직)```',
             inline = True
         )
         embed3.add_field(
