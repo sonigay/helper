@@ -118,12 +118,24 @@ async def on_message(message):
         gc1 = gspread.authorize(creds1)		
         wks = gc1.open('정책표관리').worksheet('동판구두2')
         result = wks.acell('au2').value #정책 적용일시
-        result1 = wks.acell('d6').value # 동판 TV프리미엄 모바일 신규/MNP
-        result2 = wks.acell('e6').value # 동판 TV프리미엄 모바일 재가입/정책기변
-        result3 = wks.acell('d7').value # 동판 TV베이직 모바일 신규/MNP
-        result4 = wks.acell('e7').value # 동판 TV베이직 모바일 재가입/정책기변
-        result5 = wks.acell('d8').value # 동판 TV없음 모바일 신규/MNP
-        result6 = wks.acell('e8').value # 동판 TV없음 모바일 재가입/정책기변
+        result1 = wks.acell('d6').value # 광기가동판 TV프리미엄 모바일 신규/MNP
+        result2 = wks.acell('e6').value # 광기가동판 TV프리미엄 모바일 재가입/정책기변
+        result3 = wks.acell('d7').value # 광기가동판 TV베이직 모바일 신규/MNP
+        result4 = wks.acell('e7').value # 광기가동판 TV베이직 모바일 재가입/정책기변
+        result5 = wks.acell('d8').value # 광기가동판 TV없음 모바일 신규/MNP
+        result6 = wks.acell('e8').value # 광기가동판 TV없음 모바일 재가입/정책기변
+        result7 = wks.acell('d9').value # 슬림동판 TV프리미엄 모바일 신규/MNP
+        result8 = wks.acell('e9').value # 슬림동판 TV프리미엄 모바일 재가입/정책기변
+        result9 = wks.acell('d10').value # 슬림동판 TV베이직 모바일 신규/MNP
+        result10 = wks.acell('e10').value # 슬림동판 TV베이직 모바일 재가입/정책기변
+        result11 = wks.acell('d11').value # 슬림동판 TV없음 모바일 신규/MNP
+        result12 = wks.acell('e11').value # 슬림동판 TV없음 모바일 재가입/정책기변
+        result13 = wks.acell('d12').value # 광랜동판 TV프리미엄 모바일 신규/MNP
+        result14 = wks.acell('e12').value # 광랜동판 TV프리미엄 모바일 재가입/정책기변
+        result15 = wks.acell('d13').value # 광랜동판 TV베이직 모바일 신규/MNP
+        result16 = wks.acell('e13').value # 광랜동판 TV베이직 모바일 재가입/정책기변
+        result17 = wks.acell('d14').value # 광랜동판 TV없음 모바일 신규/MNP
+        result18 = wks.acell('e14').value # 광랜동판 TV없음 모바일 재가입/정책기변	
 	
         embed = discord.Embed(
             title='유선 동판 정책',
@@ -190,9 +202,111 @@ async def on_message(message):
             value='```' + result6 + '```',
             inline = True
         )
+        embed2 = discord.Embed(
+            title='',
+            description= '```슬림(500메가) ```',
+            color=0x00ffff
+        )
+        embed2.add_field(
+            name="TV포함 유무",
+            value='```TV(프리미엄)```',
+            inline = True
+        )
+        embed2.add_field(
+            name="모바일( 신규/MNP )",
+            value='```' + result7 + '```',
+            inline = True
+        )
+        embed2.add_field(
+            name="모바일(재가입/기변)",
+            value='```' + result8 + '```',
+            inline = True
+        )
+        embed2.add_field(
+            name="-",
+            value='```TV(베이직)```',
+            inline = True
+        )
+        embed2.add_field(
+            name="-",
+            value='```' + result9 + '```',
+            inline = True
+        )
+        embed2.add_field(
+            name="-",
+            value='```' + result10 + '```',
+            inline = True
+        )
+        embed2.add_field(
+            name="-",
+            value='```TV없음```',
+            inline = True
+        )
+        embed2.add_field(
+            name="-",
+            value='```' + result11 + '```',
+            inline = True
+        )
+        embed2.add_field(
+            name="-",
+            value='```' + result12 + '```',
+            inline = True
+        )
+        embed3 = discord.Embed(
+            title='',
+            description= '```광랜(100메가) ```',
+            color=0x00ffff
+        )
+        embed3.add_field(
+            name="TV포함 유무",
+            value='```TV(프리미엄)```',
+            inline = True
+        )
+        embed3.add_field(
+            name="모바일( 신규/MNP )",
+            value='```' + result13 + '```',
+            inline = True
+        )
+        embed3.add_field(
+            name="모바일(재가입/기변)",
+            value='```' + result14 + '```',
+            inline = True
+        )
+        embed3.add_field(
+            name="-",
+            value='```TV(베이직)```',
+            inline = True
+        )
+        embed3.add_field(
+            name="-",
+            value='```' + result15 + '```',
+            inline = True
+        )
+        embed3.add_field(
+            name="-",
+            value='```' + result16 + '```',
+            inline = True
+        )
+        embed3.add_field(
+            name="-",
+            value='```TV없음```',
+            inline = True
+        )
+        embed3.add_field(
+            name="-",
+            value='```' + result17 + '```',
+            inline = True
+        )
+        embed3.add_field(
+            name="-",
+            value='```' + result18 + '```',
+            inline = True
+        )	
 
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed1)
+        await client.send_message(message.channel, embed=embed2)
+        await client.send_message(message.channel, embed=embed3)	
 
 
 
