@@ -94,27 +94,48 @@ async def on_message(message):
         await client.send_message(message.channel, embed=embed3)
 	
 	
-    if message.content.startswith('!동판'):
-        SearchID = message.content[len('!동판')+1:]
-        gc1 = gspread.authorize(creds1)
-        wks = gc1.open('정책표관리').worksheet('동판출력')
-        wks.update_acell('A1', SearchID)
-        result = wks.acell('B1').value
+#     if message.content.startswith('!동판'):
+#         SearchID = message.content[len('!동판')+1:]
+#         gc1 = gspread.authorize(creds1)
+#         wks = gc1.open('정책표관리').worksheet('동판출력')
+#         wks.update_acell('A1', SearchID)
+#         result = wks.acell('B1').value
 	
-        embed1 = discord.Embed(
-            title = ' :globe_with_meridians:  ' + SearchID + ' 안내 ',
-            description= '**```css\n' + SearchID + ' 정책입니다. ' + result + ' ```**',
+#         embed1 = discord.Embed(
+#             title = ' :globe_with_meridians:  ' + SearchID + ' 안내 ',
+#             description= '**```css\n' + SearchID + ' 정책입니다. ' + result + ' ```**',
+#             color=0x00ffff
+#             )
+#         embed2 = discord.Embed(
+#             title = ' :globe_with_meridians: 동판 ' + SearchID + ' 정책조회!! ',
+#             description= '```' "출력자:" + message.author.display_name +"\n거래처:" + message.channel.name + ' ```',
+#             color=0x00ffff
+#             )
+#         await client.send_message(client.get_channel("674653007132229632"), embed=embed2)
+#         await client.send_message(message.channel, embed=embed1)	
+
+    if message.content == '!동판':
+        wks = gc1.open('정책표관리').worksheet('동판구두2')
+        result = wks.acell('hu2').value #정책 적용일시
+
+        embed = discord.Embed(
+            title='유선 동판 정책',
+            description= '```정책 적용 일시내 모바일 개통 및 설치, 결합시 적용\n ```',
             color=0x00ffff
-            )
-        embed2 = discord.Embed(
-            title = ' :globe_with_meridians: 동판 ' + SearchID + ' 정책조회!! ',
-            description= '```' "출력자:" + message.author.display_name +"\n거래처:" + message.channel.name + ' ```',
-            color=0x00ffff
-            )
-        await client.send_message(client.get_channel("674653007132229632"), embed=embed2)
-        await client.send_message(message.channel, embed=embed1)	
-        
-        
+        )
+        embed.add_field(
+            name="정책 적용 일시",
+            value='```' + result + '```',
+            inline = False
+        )
+        embed.add_field(
+            name="유의사항",
+            value='```diff\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수 ( 동일 장소 재설치 및 가족명의 등 )```',
+            inline = False
+        )	
+        await client.send_message(message.channel, embed=embed)	
+	
+	
     if message.content.startswith('!전월실적'):
         SearchID = message.content[len('!전월실적')+1:]
         gc = gspread.authorize(creds)
