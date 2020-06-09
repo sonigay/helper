@@ -122,20 +122,23 @@ async def on_message(message):
         result2 = wks.acell('e6').value # 광기가동판 TV프리미엄 모바일 재가입/정책기변
         result3 = wks.acell('d7').value # 광기가동판 TV베이직 모바일 신규/MNP
         result4 = wks.acell('e7').value # 광기가동판 TV베이직 모바일 재가입/정책기변
-        result5 = wks.acell('d8').value # 광기가동판 TV없음 모바일 신규/MNP
-        result6 = wks.acell('e8').value # 광기가동판 TV없음 모바일 재가입/정책기변
         result7 = wks.acell('d9').value # 슬림동판 TV프리미엄 모바일 신규/MNP
         result8 = wks.acell('e9').value # 슬림동판 TV프리미엄 모바일 재가입/정책기변
         result9 = wks.acell('d10').value # 슬림동판 TV베이직 모바일 신규/MNP
         result10 = wks.acell('e10').value # 슬림동판 TV베이직 모바일 재가입/정책기변
-        result11 = wks.acell('d11').value # 슬림동판 TV없음 모바일 신규/MNP
-        result12 = wks.acell('e11').value # 슬림동판 TV없음 모바일 재가입/정책기변
         result13 = wks.acell('d12').value # 광랜동판 TV프리미엄 모바일 신규/MNP
         result14 = wks.acell('e12').value # 광랜동판 TV프리미엄 모바일 재가입/정책기변
         result15 = wks.acell('d13').value # 광랜동판 TV베이직 모바일 신규/MNP
         result16 = wks.acell('e13').value # 광랜동판 TV베이직 모바일 재가입/정책기변
-        result17 = wks.acell('d14').value # 광랜동판 TV없음 모바일 신규/MNP
-        result18 = wks.acell('e14').value # 광랜동판 TV없음 모바일 재가입/정책기변	
+        result17 = wks.acell('AD3').value # 상품권추가
+        result18 = wks.acell('AI3').value # IOT추가
+        result19 = wks.acell('AK3').value # 셋탑추가
+        result20 = wks.acell('AM3').value # TV프리2추가
+        result21 = wks.acell('AD6').value # 동판 상품권금액
+        result22 = wks.acell('AI6').value # 동판 IOT추가
+        result23 = wks.acell('AK6').value # 동판 , 후결합 셋탑추가
+        result24 = wks.acell('AM6').value # 동판 TV프리2추가	
+	
 	
         embed = discord.Embed(
             title='유선 동판 정책',
@@ -187,21 +190,6 @@ async def on_message(message):
             value='```' + result4 + '```',
             inline = True
         )
-        embed1.add_field(
-            name="-",
-            value='```TV없음```',
-            inline = True
-        )
-        embed1.add_field(
-            name="-",
-            value='```' + result5 + '```',
-            inline = True
-        )
-        embed1.add_field(
-            name="-",
-            value='```' + result6 + '```',
-            inline = True
-        )
         embed2 = discord.Embed(
             title='',
             description= '```슬림(500메가) ```',
@@ -235,21 +223,6 @@ async def on_message(message):
         embed2.add_field(
             name="-",
             value='```' + result10 + '```',
-            inline = True
-        )
-        embed2.add_field(
-            name="-",
-            value='```TV없음```',
-            inline = True
-        )
-        embed2.add_field(
-            name="-",
-            value='```' + result11 + '```',
-            inline = True
-        )
-        embed2.add_field(
-            name="-",
-            value='```' + result12 + '```',
             inline = True
         )
         embed3 = discord.Embed(
@@ -286,28 +259,38 @@ async def on_message(message):
             name="-",
             value='```' + result16 + '```',
             inline = True
+        )	
+        embed4 = discord.Embed(
+            title='공통추가',
+            description= '```본사 사은품은 3년약정 동판기준```',
+            color=0x00ffff
         )
-        embed3.add_field(
-            name="-",
-            value='```TV없음```',
-            inline = True
-        )
-        embed3.add_field(
-            name="-",
-            value='```' + result17 + '```',
-            inline = True
-        )
-        embed3.add_field(
-            name="-",
-            value='```' + result18 + '```',
+        embed4.add_field(
+            name='```' + result17 + '```',
+            value='```' + result21 + '```',
             inline = True
         )	
-
+        embed4.add_field(
+            name='```' + result18 + '```',
+            value='```' + result22 + '```',
+            inline = True
+        )
+        embed4.add_field(
+            name='```' + result19 + '```',
+            value='```' + result23 + '```',
+            inline = True
+        )
+        embed4.add_field(
+            name='```' + result20 + '```',
+            value='```' + result24 + '```',
+            inline = True
+        )
+	
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed1)
         await client.send_message(message.channel, embed=embed2)
         await client.send_message(message.channel, embed=embed3)	
-
+        await client.send_message(message.channel, embed=embed4)
 
 
 
