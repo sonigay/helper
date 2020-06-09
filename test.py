@@ -115,6 +115,7 @@ async def on_message(message):
 #         await client.send_message(message.channel, embed=embed1)	
 
     if message.content == '!동판':
+        gc1 = gspread.authorize(creds1)		
         wks = gc1.open('정책표관리').worksheet('동판구두2')
         result = wks.acell('hu2').value #정책 적용일시
         result1 = wks.acell('d6').value # 동판 신규/MNP
