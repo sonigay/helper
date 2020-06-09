@@ -266,37 +266,26 @@ async def on_message(message):
             color=0x00ffff
         )
         embed4.add_field(
-            name='```' + result17 + '```',
+            name= result17,
             value='```' + result21 + '```',
-            inline = True
-        )	
+            inline = False
+        )
         embed4.add_field(
-            name='```' + result18 + '```',
+            name= result18,
             value='```' + result22 + '```',
-            inline = True
+            inline = False
         )
         embed4.add_field(
-            name='```' + result19 + '```',
+            name= result19,
             value='```' + result23 + '```',
-            inline = True
+            inline = False
         )
         embed4.add_field(
-            name='```' + result20 + '```',
+            name= result20,
             value='```' + result24 + '```',
-            inline = True
+            inline = False
         )
-        embed4.add_field(
-            name='```하하하```',
-            value='',
-            inline = True
-        )
-        embed4.add_field(
-            name='```하하하```',
-            value='',
-            inline = True
-        )
-	
-	
+
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed1)
         await client.send_message(message.channel, embed=embed2)
