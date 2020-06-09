@@ -286,12 +286,12 @@ async def on_message(message):
             inline = True
         )
         embed4.add_field(
-            name='```' 하하하'```',
+            name='```하하하```',
             value='',
             inline = True
         )
         embed4.add_field(
-            name='```' 하하하'```',
+            name='```하하하```',
             value='',
             inline = True
         )
