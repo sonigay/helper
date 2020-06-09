@@ -123,7 +123,7 @@ async def on_message(message):
 	
         embed = discord.Embed(
             title='유선 동판 정책',
-            description= '```정책 적용 일시내 모바일 개통 및 설치, 결합시 적용\n ```',
+            description= '```정책 적용 일시내 모바일 개통 및 설치, 결합시 적용```',
             color=0x00ffff
         )
         embed.add_field(
@@ -133,7 +133,7 @@ async def on_message(message):
         )
         embed.add_field(
             name="유의사항",
-            value='```diff\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수 ( 동일 장소 재설치 및 가족명의 등 )```',
+            value='```diff\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수(동일장소 재설치및 가족명의 등)```',
             inline = False
         )
         embed1 = discord.Embed(
