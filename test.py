@@ -117,7 +117,7 @@ async def on_message(message):
     if message.content == '!동판':
         gc1 = gspread.authorize(creds1)		
         wks = gc1.open('정책표관리').worksheet('동판구두2')
-        result = wks.acell('hu2').value #정책 적용일시
+        result = wks.acell('au2').value #정책 적용일시
         result1 = wks.acell('d6').value # 동판 신규/MNP
         result2 = wks.acell('e6').value # 동판 재가입/정책기변
 	
