@@ -155,6 +155,26 @@ async def on_message(message):
             value='```diff\n-■ 본사 사은품은 3년약정 동판시 지급\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수(동일장소 재설치및 가족명의 등)```',
             inline = False
         )
+        embed.add_field(
+            name= result17,
+            value='```' + result21 + '```',
+            inline = False
+        )
+        embed.add_field(
+            name= result18,
+            value='```' + result22 + '```',
+            inline = False
+        )
+        embed.add_field(
+            name= result19,
+            value='```' + result23 + '```',
+            inline = False
+        )
+        embed.add_field(
+            name= result20,
+            value='```' + result24 + '```',
+            inline = False
+        )
         embed1 = discord.Embed(
             title='',
             description= '```광기가(1기가) ```',
