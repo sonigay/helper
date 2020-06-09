@@ -142,7 +142,7 @@ async def on_message(message):
             color=0x00ffff
         )
         embed1.add_field(
-            name="TV유무",
+            name="TV포함\n유  무",
             value='```TV(프리미엄)```',
             inline = True
         )
@@ -152,7 +152,7 @@ async def on_message(message):
             inline = True
         )
         embed1.add_field(
-            name="모바일\n재가입/정책기변",
+            name="모바일\n재가입/기변",
             value='```' + result2 + '```',
             inline = True
         )
