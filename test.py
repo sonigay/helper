@@ -118,8 +118,12 @@ async def on_message(message):
         gc1 = gspread.authorize(creds1)		
         wks = gc1.open('정책표관리').worksheet('동판구두2')
         result = wks.acell('au2').value #정책 적용일시
-        result1 = wks.acell('d6').value # 동판 신규/MNP
-        result2 = wks.acell('e6').value # 동판 재가입/정책기변
+        result1 = wks.acell('d6').value # 동판 TV프리미엄 모바일 신규/MNP
+        result2 = wks.acell('e6').value # 동판 TV프리미엄 모바일 재가입/정책기변
+        result3 = wks.acell('d7').value # 동판 TV베이직 모바일 신규/MNP
+        result4 = wks.acell('e7').value # 동판 TV베이직 모바일 재가입/정책기변
+        result5 = wks.acell('d8').value # 동판 TV없음 모바일 신규/MNP
+        result6 = wks.acell('e8').value # 동판 TV없음 모바일 재가입/정책기변
 	
         embed = discord.Embed(
             title='유선 동판 정책',
@@ -156,7 +160,36 @@ async def on_message(message):
             value='```' + result2 + '```',
             inline = True
         )
-
+        embed1.add_field(
+            name="-",
+            value='```TV(베이직)```',
+            inline = True
+        )
+        embed1.add_field(
+            name="-",
+            value='```' + result3 + '```',
+            inline = True
+        )
+        embed1.add_field(
+            name="-",
+            value='```' + result4 + '```',
+            inline = True
+        )
+        embed1.add_field(
+            name="-",
+            value='```TV없음```',
+            inline = True
+        )
+        embed1.add_field(
+            name="-",
+            value='```' + result5 + '```',
+            inline = True
+        )
+        embed1.add_field(
+            name="-",
+            value='```' + result6 + '```',
+            inline = True
+        )
 
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed1)
