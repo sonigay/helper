@@ -196,17 +196,17 @@ async def on_message(message):
             inline = True
         )
         embed1.add_field(
-            name="-",
+            name="__________",
             value='```TV(베이직)```',
             inline = True
         )
         embed1.add_field(
-            name="-",
+            name="__________",
             value='```' + result3 + '```',
             inline = True
         )
         embed1.add_field(
-            name="-",
+            name="__________",
             value='```' + result4 + '```',
             inline = True
         )
@@ -231,17 +231,17 @@ async def on_message(message):
             inline = True
         )
         embed2.add_field(
-            name="-",
+            name="__________",
             value='```TV(베이직)```',
             inline = True
         )
         embed2.add_field(
-            name="-",
+            name="__________",
             value='```' + result9 + '```',
             inline = True
         )
         embed2.add_field(
-            name="-",
+            name="__________",
             value='```' + result10 + '```',
             inline = True
         )
@@ -266,51 +266,25 @@ async def on_message(message):
             inline = True
         )
         embed3.add_field(
-            name="-",
+            name="__________",
             value='```TV(베이직)```',
             inline = True
         )
         embed3.add_field(
-            name="-",
+            name="__________",
             value='```' + result15 + '```',
             inline = True
         )
         embed3.add_field(
-            name="-",
+            name="__________",
             value='```' + result16 + '```',
             inline = True
-        )	
-        embed4 = discord.Embed(
-            title='공통추가',
-            description= '',
-            color=0x00ffff
-        )
-        embed4.add_field(
-            name= result17,
-            value='```' + result21 + '```',
-            inline = False
-        )
-        embed4.add_field(
-            name= result18,
-            value='```' + result22 + '```',
-            inline = False
-        )
-        embed4.add_field(
-            name= result19,
-            value='```' + result23 + '```',
-            inline = False
-        )
-        embed4.add_field(
-            name= result20,
-            value='```' + result24 + '```',
-            inline = False
         )
 
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed1)
         await client.send_message(message.channel, embed=embed2)
-        await client.send_message(message.channel, embed=embed3)	
-        await client.send_message(message.channel, embed=embed4)
+        await client.send_message(message.channel, embed=embed3)
 
 
 
