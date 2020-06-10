@@ -177,7 +177,7 @@ async def on_message(message):
         )
         embed1 = discord.Embed(
             title='',
-            description= '```💚광기가(1기가) ```',
+            description= '```------------------💚광기가(1기가)------------------```',
             color=0x83ff30
         )
         embed1.add_field(
