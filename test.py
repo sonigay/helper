@@ -177,11 +177,11 @@ async def on_message(message):
         )
         embed1 = discord.Embed(
             title='',
-            description= '```--------------💚광기가(1기가)--------------```',
+            description= '```-------------💚광기가(1기가)-------------```',
             color=0x83ff30
         )
         embed1.add_field(
-            name="TV 요금제",
+            name="TV상품",
             value='```💚TV(프리미엄)```',
             inline = True
         )
@@ -196,27 +196,27 @@ async def on_message(message):
             inline = True
         )
         embed1.add_field(
-            name="__________",
+            name="TV상품",
             value='```💚TV(베이직)```',
             inline = True
         )
         embed1.add_field(
-            name="__________",
+            name="모바일( 신규/MNP )",
             value='```' + result3 + '```',
             inline = True
         )
         embed1.add_field(
-            name="__________",
+            name="모바일(재가입/기변)",
             value='```' + result4 + '```',
             inline = True
         )
         embed2 = discord.Embed(
             title='',
-            description= '```💛슬림(500메가) ```',
+            description= '```-------------💛슬림(500메가)-------------```',
             color=0xf9ff27
         )
         embed2.add_field(
-            name="TV포함 유무",
+            name="TV상품",
             value='```💛TV(프리미엄)```',
             inline = True
         )
@@ -231,27 +231,27 @@ async def on_message(message):
             inline = True
         )
         embed2.add_field(
-            name="__________",
+            name="TV상품",
             value='```💛TV(베이직)```',
             inline = True
         )
         embed2.add_field(
-            name="__________",
+            name="모바일( 신규/MNP )",
             value='```' + result9 + '```',
             inline = True
         )
         embed2.add_field(
-            name="__________",
+            name="모바일(재가입/기변)",
             value='```' + result10 + '```',
             inline = True
         )
         embed3 = discord.Embed(
             title='',
-            description= '```💙광랜(100메가) ```',
+            description= '```-------------💙광랜(100메가)-------------```',
             color=0x3862ff
         )
         embed3.add_field(
-            name="TV포함 유무",
+            name="TV상품",
             value='```💙TV(프리미엄)```',
             inline = True
         )
@@ -266,17 +266,17 @@ async def on_message(message):
             inline = True
         )
         embed3.add_field(
-            name="__________",
+            name="TV상품",
             value='```💙TV(베이직)```',
             inline = True
         )
         embed3.add_field(
-            name="__________",
+            name="모바일( 신규/MNP )",
             value='```' + result15 + '```',
             inline = True
         )
         embed3.add_field(
-            name="__________",
+            name="모바일(재가입/기변)",
             value='```' + result16 + '```',
             inline = True
         )
