@@ -156,7 +156,7 @@ async def on_message(message):
             inline = False
         )
         embed.add_field(
-            name= 'diff\n' + result17 + '',
+            name= result17,
             value='```' + result21 + '```',
             inline = False
         )
