@@ -72,7 +72,8 @@ async def on_message(message):
         result = wks.acell('B1').value
         result2 = wkstime.acell('A1').value
         result3 = wks.acell('c1').value
-        result4 = wks.acell('D1').value	
+        result4 = wks.acell('d1').value
+        result5 = wks.acell('e1').value	
         
         embed = discord.Embed(
             title = ' :calling:  ' + SearchID + ' 재고현황! ',
@@ -86,12 +87,18 @@ async def on_message(message):
             )
         embed3 = discord.Embed(
             title = '',
-            description= '**```css\n '+ result4 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
+            description= '**```css\n '+ result4 + '```**',
+            color=0x50508C
+            )	
+        embed4 = discord.Embed(
+            title = '',
+            description= '**```css\n '+ result5 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
             color=0x50508C
             )	
         await client.send_message(message.channel, embed=embed)
         await client.send_message(message.channel, embed=embed2)
         await client.send_message(message.channel, embed=embed3)
+        await client.send_message(message.channel, embed=embed4)
 	
 	
 #     if message.content.startswith('!동판'):
