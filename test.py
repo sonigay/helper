@@ -144,43 +144,50 @@ async def on_message(message):
         result21 = wks.acell('AD6').value # 동판 상품권금액
         result22 = wks.acell('AI6').value # 동판 IOT추가
         result23 = wks.acell('AK6').value # 동판 , 후결합 셋탑추가
-        result24 = wks.acell('AM6').value # 동판 TV프리2추가	
-	
+        result24 = wks.acell('AM6').value # 동판 TV프리2추가
+        result25 = wks.acell('AO3').value # 단독 TV프리2 설명
+        result26 = wks.acell('AO6').value # 단독 TV프리2 프리미엄
+        result27 = wks.acell('AO7').value # 단독 TV프리2 설명
 	
         embed = discord.Embed(
-            title='🌐 유선 동판 정책',
-            description= '```정책 적용 일시내 모바일 개통 및 설치, 결합시 적용```',
-            color=0x00ffff
+                title='🌐 유선 동판 정책',
+                description= '```정책 적용 일시내 모바일 개통 및 설치, 결합시 적용```',
+                color=0x00ffff
         )
         embed.add_field(
-            name="⌛ 정책 적용 일시",
-            value='```' + result + '```',
-            inline = False
+                name="⌛ 정책 적용 일시",
+                value='```' + result + '```',
+                inline = False
         )
         embed.add_field(
-            name="📍 유의사항",
-            value='```diff\n-■ 본사 사은품은 3년약정 동판시 지급\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수\n-  (동일장소 재설치및 가족명의 등)```',
-            inline = False
+                name="📍 유의사항",
+                value='```diff\n-■ 본사 사은품은 3년약정 동판시 지급\n-■ 소호 동판은 개인사업자만 가능(법인 결합 불가)\n-■ 7회 이하 요금 납부 후 해지시 수수료 환수\n-■ 해지후 재가입시 수수료 전액 환수\n-  (동일장소 재설치및 가족명의 등)```',
+                inline = False
         )
         embed.add_field(
-            name= result17,
-            value='```' + result21 + '```',
-            inline = False
+                name= result17,
+                value='```' + result21 + '```',
+                inline = False
         )
         embed.add_field(
-            name= result18,
-            value='```' + result22 + '```',
-            inline = False
+                name= result18,
+                value='```' + result22 + '```',
+                inline = False
         )
         embed.add_field(
-            name= result19,
-            value='```' + result23 + '```',
-            inline = False
+                name= result19,
+                value='```' + result23 + '```',
+                inline = False
         )
         embed.add_field(
-            name= result20,
-            value='```' + result24 + '```',
-            inline = False
+                name= result20,
+                value='```' + result24 + '```',
+                inline = False
+        )
+        embed.add_field(
+                name= result25,
+                value='```' + result26 +"\n"+ result27 + '```',
+                inline = False
         )
         embed1 = discord.Embed(
             title='',
