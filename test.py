@@ -150,6 +150,8 @@ async def on_message(message):
         result27 = wks.acell('AO7').value # 단독 TV프리2 설명
         result28 = wks.acell('AU3').value # 단독 TV프리2 프리미엄
         result29 = wks.acell('AU6').value # 단독 TV프리2 설명
+        result30 = wks.acell('As3').value # 안정화
+        result31 = wks.acell('As6').value # 안정화
 	
         embed = discord.Embed(
                 title='🌐 유선 동판 정책',
@@ -195,7 +197,12 @@ async def on_message(message):
                 name= result28,
                 value='```' + result29 + '```',
                 inline = False
-        )	
+        )
+        embed.add_field(
+                name= result30,
+                value='```diff\n' + result31 + '```',
+                inline = False
+        )
         embed1 = discord.Embed(
             title='',
             description= '```-------------💚광기가(1기가)-------------```',
