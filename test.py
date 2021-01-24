@@ -635,6 +635,7 @@ async def on_message(message):
         wks.update_acell('A1', SearchID)
         result = wks.acell('B1').value
         result2 = wks.acell('C1').value
+        result3 = wks.acell('d1').value
         
         embed = discord.Embed(
             title = ' :printer:  거래처 코드 리스트 ',
@@ -646,8 +647,14 @@ async def on_message(message):
             description= '```' + result2 + ' ```',
             color=0x00Bfff
             )
+        embed3 = discord.Embed(
+            title = '',
+            description= '```' + result3 + ' ```',
+            color=0x00Bfff
+            )
         await message.channel.send(embed=embed)
-        await message.channel.send(embed=embed2)      
+        await message.channel.send(embed=embed2)
+        await message.channel.send(embed=embed3)
 
 	
     if message.content.startswith('!담당자'):
