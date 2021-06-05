@@ -158,6 +158,12 @@ async def on_message(message):
         result31 = wks.acell('AU6').value # 단독 TV프리2 설명
         result32 = wks.acell('As3').value # 안정화
         result33 = wks.acell('As6').value # 안정화
+        result34 = wks.acell('c9').value # 광기가동판 모바일 신규/MNP
+        result35 = wks.acell('d9').value # 광기가동판 모바일 재가입/정책기변			
+        result36 = wks.acell('c13').value # 슬림동판 모바일 신규/MNP			
+        result37 = wks.acell('d13').value # 슬림동판 모바일 재가입/정책기변			
+        result38 = wks.acell('c17').value # 광랜동판 모바일 신규/MNP			
+        result39 = wks.acell('d17').value # 광랜동판 모바일 재가입/정책기변	
 	
         embed = discord.Embed(
                 title='🌐 유선 동판 정책',
@@ -259,6 +265,21 @@ async def on_message(message):
         value='```' + result6 + '```',
         inline = True
         )
+        embed1.add_field(
+        name="TV상품",
+        value='```💚TV(미포함)```',
+        inline = True
+        )
+        embed1.add_field(
+        name="모바일( 신규/MNP )",
+        value='```' + result34 + '```',
+        inline = True
+        )
+        embed1.add_field(
+        name="모바일(재가입/기변)",
+        value='```' + result35 + '```',
+        inline = True
+        )	
         embed2 = discord.Embed(
         title='',
         description= '```-------------💛슬림(500메가)-------------```',
@@ -309,6 +330,21 @@ async def on_message(message):
         value='```' + result12 + '```',
         inline = True
         )
+        embed2.add_field(
+        name="TV상품",
+        value='```💛TV(미포함)```',
+        inline = True
+        )
+        embed2.add_field(
+        name="모바일( 신규/MNP )",
+        value='```' + result36 + '```',
+        inline = True
+        )
+        embed2.add_field(
+        name="모바일(재가입/기변)",
+        value='```' + result37 + '```',
+        inline = True
+        )	
         embed3 = discord.Embed(
         title='',
         description= '```-------------💙광랜(100메가)-------------```',
@@ -359,6 +395,21 @@ async def on_message(message):
         value='```' + result18 + '```',
         inline = True
         )
+        embed3.add_field(
+        name="TV상품",
+        value='```💙TV(미포함)```',
+        inline = True
+        )
+        embed3.add_field(
+        name="모바일( 신규/MNP )",
+        value='```' + result38 + '```',
+        inline = True
+        )
+        embed3.add_field(
+        name="모바일(재가입/기변)",
+        value='```' + result39 + '```',
+        inline = True
+        )	
 
         await message.channel.send(embed=embed)
         await message.channel.send(embed=embed1)
