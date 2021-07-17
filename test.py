@@ -71,6 +71,7 @@ async def on_message(message):
         wks.update_acell('A1', '')
         time.sleep(1)
         wks.update_acell('A1', SearchID)
+        time.sleep(1)
         result = wks.acell('B1').value
         result2 = wkstime.acell('A1').value
         result3 = wks.acell('c1').value
