@@ -107,7 +107,7 @@ async def on_message(message):
             description= '**```css\n '+ result5 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
             color=0x50508C
             )
-        await message.channel.send('```fix\n' + SearchID + '재고현황 출력중...```')
+        await message.channel.send('```fix\n' + SearchID + ' 재고현황 출력중...```')
         await message.channel.send(embed=embed)
         await message.channel.send(embed=embed2)
         await message.channel.send(embed=embed3)
