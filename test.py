@@ -74,12 +74,12 @@ async def on_message(message):
 	
     if message.content.startswith('!재고'):
         SearchID = message.content[len('!재고')+1:]
-        await message.channel.send("```fix\n재고 선택중...```")
+        await message.channel.send('```fix\n' + SearchID + ' 재고 선택중...```')
         gc = gspread.authorize(creds)
         wks = gc.open('재고관리').worksheet('영업재고출력')
         wkstime = gc.open('재고관리').worksheet('재고데이터')
         wks.update_acell('A1', SearchID)
-        await message.channel.send("```fix\n재고 조회중...```")
+        await message.channel.send('```fix\n' + SearchID + ' 재고 조회중...```')
         result = wks.acell('B1').value
         result2 = wkstime.acell('A1').value
         await message.channel.send("```fix\n마지막 업로드시간 확인중...```")
@@ -107,7 +107,7 @@ async def on_message(message):
             description= '**```css\n '+ result5 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
             color=0x50508C
             )
-        await message.channel.send("```fix\n재고현황 출력중...```")
+        await message.channel.send('```fix\n' + SearchID + '재고현황 출력중...```')
         await message.channel.send(embed=embed)
         await message.channel.send(embed=embed2)
         await message.channel.send(embed=embed3)
