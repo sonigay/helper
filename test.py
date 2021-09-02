@@ -63,9 +63,18 @@ async def on_message(message):
     global creds	#정산
     global channel
 
+    if message.content.startswith('!재고'):
+        embed = discord.Embed(
+            title='',
+            description='```fix\n' + message.author.display_name + '님 안녕하세요!😊\n요청하신 재고 조회중입니다.\n잠시만 기다려주시기 바랍니다...```',
+            color=0xf29886
+        )
+        await message.channel.send(embed=embed)
+
 	
     if message.content.startswith('!재고'):
         SearchID = message.content[len('!재고')+1:]
+        await message.channel.send("```fix\n재고 선택중...```")
         gc = gspread.authorize(creds)
         wks = gc.open('재고관리').worksheet('영업재고출력')
         wkstime = gc.open('재고관리').worksheet('재고데이터')
@@ -76,6 +85,7 @@ async def on_message(message):
         result4 = wks.acell('d1').value
         result5 = wks.acell('e1').value	
         
+        await message.channel.send("```fix\n재고 조회중...```")
         embed = discord.Embed(
             title = ' :calling:  ' + SearchID + ' 재고현황! ',
             description= '**```css\n' + SearchID + ' 재고현황 입니다.\n마지막 데이터 업로드시간은\n'+ result2 + ' 입니다.\n' + result + '```**',
@@ -95,7 +105,8 @@ async def on_message(message):
             title = '',
             description= '**```css\n '+ result5 + '실시간조회가 아니라서 다소 차이가 있을수 있습니다. ```**',
             color=0x50508C
-            )	
+            )
+        await message.channel.send("```fix\n재고현황 출력중...```")
         await message.channel.send(embed=embed)
         await message.channel.send(embed=embed2)
         await message.channel.send(embed=embed3)
