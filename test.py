@@ -739,7 +739,7 @@ async def on_message(message):
     if message.content.startswith('!모델명'):
         embed = discord.Embed(
             title='',
-            description='```fix\n' + message.author.display_name + '님 안녕하세요!😊\n요청하신 재고 조회중입니다.\n잠시만 기다려주시기 바랍니다...```',
+            description='```fix\n' + message.author.display_name + '님 안녕하세요!😊\n요청하신 모델명 출력중입니다.\n잠시만 기다려주시기 바랍니다...```',
             color=0xf29886
         )
         await message.channel.send(embed=embed)
